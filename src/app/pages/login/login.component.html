@@ -2,26 +2,30 @@
 <div class="parent"> 
     <div class="container" [ngClass]="isSignDivVisiable ? 'active' :'' " id="container">
         <div class="form-container sign-in">
-            <form (ngSubmit)="onLogin()" [formGroup]="logInForm">
+            <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
                 <h1>Entre</h1>
-                <label class="col-sm-12" for="email">Email</label>
-                <input type="email" formControlName="email" [(ngModel)]="loginObj.email" placeholder="jose@email.com">
-                <label class="col-sm-12" for="password">Senha</label>
-                <input type="password" formControlName="password" [(ngModel)]="loginObj.password" placeholder="Senha">
-                <button [disabled]="!logInForm.valid">Entrar</button>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" placeholder="jose@email.com">
+                    <label for="password">Senha</label>
+                    <input type="password" formControlName="password" placeholder="Digite sua Senha">
+                </div>
+                <button [disabled]="!loginForm.valid">Entrar</button>
             </form>
         </div>
 
         <div class="form-container sign-up" >
-            <form (ngSubmit)="onRegister()" [formGroup]="signInForm">
-                <h1>Faça a cotação</h1>
+            <form (ngSubmit)="onSignUp()" [formGroup]="signUpForm">
+                <h1>Crie sua Conta</h1>
                 <label class="col-sm-12" for="name">Nome</label>
-                <input type="text" formControlName="name" [(ngModel)]="signUpObj.name" placeholder="Jose">
-                <label class="col-sm-12" for="email">Email</label>
-                <input type="email" formControlName="email" [(ngModel)]="signUpObj.email" placeholder="jose@email.com">
+                <input type="text" formControlName="name" placeholder="Jose">
                 <label class="col-sm-12" for="company">Empresa</label>
-                <input type="password" formControlName="password"  [(ngModel)]="signUpObj.company" placeholder="Jose Software">
-                <button [disabled]="!signInForm.valid">Solicitar Cotação</button>
+                <input type="text" formControlName="company" placeholder="Jose Software">
+                <label class="col-sm-12" for="email">Email</label>
+                <input type="email" formControlName="email" placeholder="jose@email.com">
+                <label class="col-sm-12" for="password">Senha</label>
+                <input type="password" formControlName="password" placeholder="Digite uma Senha">
+                <button [disabled]="!signUpForm.valid">Criar Conta</button>
             </form>
         </div>
         
@@ -29,8 +33,8 @@
             <div class="toggle">
                 <div class="toggle-panel toggle-right">
                     <h1>Novo aqui?</h1>
-                    <p>Clique no botão abaixo para fazer sua cotação</p>
-                    <button type="button" class="hidden" id="register" (click)="isSignDivVisiable = true">Solicitar Cotação</button>
+                    <p>Clique no botão abaixo para fazer criar sua conta</p>
+                    <button type="button" class="hidden" id="register" (click)="isSignDivVisiable = true">Criar Conta</button>
                 </div>
                 <div class="toggle-panel toggle-left">
                     <h1>Bem-vindo de volta!</h1>
